@@ -15,9 +15,13 @@ security_headers = {
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--website", default="https://www.google.com")
+parser.add_argument("--allowredirect", "--r", default=False, action="store_true")
 args = parser.parse_args()
 
-response = requests.get(args.website)
+if args.allowredirect:
+    response = requests.get(args.website, allow_redirects=True)
+else:
+    response = requests.get(args.website)
 
 print(f"Target Site: " + args.website)
 print(f"Status Code: " + str(response.status_code))
