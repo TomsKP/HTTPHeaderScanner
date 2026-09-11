@@ -34,9 +34,13 @@ try:
         else:
             print(header + " is absent")
 
+except requests.exceptions.MissingSchema:
+    print("Missing Schema, please add HTTPS/HTTP")
 except requests.exceptions.ConnectionError as ce:
-    print("Connection Error")
+    print("Connection Error, please check your internet connection or URL")
 except requests.exceptions.Timeout as te:
     print("Timeout")
 except requests.exceptions.TooManyRedirects as tr:
     print("Too Many Redirects")
+except requests.exceptions.RequestException as re:
+    print("Request Exception")
