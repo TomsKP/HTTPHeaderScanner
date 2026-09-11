@@ -19,9 +19,9 @@ parser.add_argument("--allowredirect", "--r", default=False, action="store_true"
 args = parser.parse_args()
 
 if args.allowredirect:
-    response = requests.get(args.website, allow_redirects=True)
+    response = requests.get(args.website, allow_redirects=True, timeout=5)
 else:
-    response = requests.get(args.website)
+    response = requests.get(args.website, timeout=5)
 
 print(f"Target Site: " + args.website)
 print(f"Status Code: " + str(response.status_code))
