@@ -39,4 +39,4 @@ except requests.exceptions.ConnectionError as ce:
 except requests.exceptions.Timeout as te:
     print("Timeout")
 except requests.exceptions.TooManyRedirects as tr:
-    print("TooManyRedirects")
+    print("Too Many Redirects")
